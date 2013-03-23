@@ -11,7 +11,7 @@ def getConnection(url, userName, password):
     get the session by the init
     '''
     __session = XenAPI.Session(url)
-    session.xenapi.login_with_password(userName, password)
+    __session.xenapi.login_with_password(userName, password)
 
 def create_VM():
     '''
