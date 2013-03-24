@@ -1,26 +1,17 @@
 '''
 @auther: exoticknight, JP
-
 '''
 import XenAPI
 
 # session
 __session = ''
-__xenapi = ''
 
-def get_connection(url, userName, password):
+def getConnection(url, userName, password):
     '''
-    get the session from the master of the pool
+    get the session by the init
     '''
-    try:
-        __session = XenAPI.Session(url)
-        __session.xenapi.login_with_password(userName, password)
-        __xenapi = __session.xenapi
-    except:
-        # logout and reset the __session
-        print 'Failed to get connection!'
-        __session.xenapi.session.logout()
-        __session = ''
+    __session = XenAPI.Session(url)
+    __session.xenapi.login_with_password(userName, password)
 
 def create_VM():
     '''
@@ -65,11 +56,9 @@ def migrate_VM(source, destination, VM, mode):
     #do something
     pass
 
-def absort_connection():
+def close_session():
     '''
     close the session
     '''
-    try:
-        __session.xenapi.session.logout()
-    except:
-        pass
+    #do something
+    pass
